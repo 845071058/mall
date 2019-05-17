@@ -1,0 +1,19 @@
+<!--pages/home/home.wxml-->
+<!--导航条-->  
+<view class="navbar">  
+  <text wx:for="{{navbars}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item.navbarName}}</text>  
+</view>
+
+<!-- banner -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{bnrUrl}}">
+      <swiper-item>
+        <image src="{{item.url}}" mode="widthFix"  catchtap="show"/>
+      </swiper-item>
+    </block>
+  </swiper>  
+
+ <view class="weui-loadmore" hidden="{{hidden}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">努力加载中</view>
+  </view>  
